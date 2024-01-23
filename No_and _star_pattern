@@ -1,0 +1,48 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+    int n=5;
+    int row=1;
+
+    while(row<=n){
+        int col1=1;
+        int count=1;
+        int value=n-row + 1;
+        while(col1<=value){
+            cout<<col1<<" ";
+            col1++;
+        }
+        
+        int start = row -1;
+        while(start){
+            cout<<"*"<<" ";
+            start--;
+        }
+        
+        int space = row-1;
+        while(space){
+            cout<<"*"<<" ";
+            space--;
+        }
+        
+        int sub = n-row+1;
+        while(sub){
+            cout<<sub<<" ";
+            sub--;
+        }
+      
+        cout<<endl;
+        row++;
+
+    }
+
+    return 0;
+}
+
+//Output:
+// 1 2 3 4 5 5 4 3 2 1 
+// 1 2 3 4 * * 4 3 2 1 
+// 1 2 3 * * * * 3 2 1 
+// 1 2 * * * * * * 2 1 
+// 1 * * * * * * * * 1 
