@@ -1,0 +1,71 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Solution 
+{
+    
+    public:
+    
+    int solution_find(int A[], int N, int M, int mid){
+        int sum1=0;
+        int stdCount=1;
+        for(int i=0; i<N; i++){
+            
+            if(sum1 + A[i] <= mid){
+                sum1 = sum1 + A[i];
+            }else{
+                stdCount++;
+                if(stdCount > M || A[i] > mid){
+                    return -1;
+                }else{
+                    sum1 = 0;
+                    sum1 =A[i];
+                }
+            }
+        }
+        return 1;
+    }
+    
+    int findPages(int A[], int N, int M) 
+    {
+        int sum =0;
+        for(int i=0;i<N;i++){
+            sum=sum+A[i];
+        }
+        
+        int low = 0;
+        int high = sum;
+        int ans=-1;
+        
+        while(low <= high){
+            int mid = low + (high - low)/2;
+            int solution = solution_find(A, N, M, mid);
+            if(solution == 1){
+                high = mid - 1;
+                ans = mid;
+            }else{
+                low = mid + 1;
+            }
+        }
+        return ans;
+        
+    }
+};
+
+int main(){
+  int t;
+  cin>>t;
+  while(t--){
+    int n;
+    cin>>n;  
+    int A[n];
+    for(int i=0;i<n;i++){
+      cin>>A[i];
+    }
+    int m;
+    cin>>m;
+    Solution ob;
+    cout<<ob.findPages(A,n,m)<<endl;
+  }
+  return 0;
+)
