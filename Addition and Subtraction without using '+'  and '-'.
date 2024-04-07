@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int getSum(int a, int b) {
+        while(b != 0){
+        unsigned carry = a & b;
+        cout<<"before"<<a<<b<<endl;
+        a=a^b;
+        cout<<"after"<<a<<b<<endl;
+        b = carry << 1;
+        }
+        return a;
+    }
+};
+
+// int main(){
+..
+...
+}
+
