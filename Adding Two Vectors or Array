@@ -1,0 +1,60 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include<vector>
+using namespace std;
+
+vector<int> addTwoArray(vector<int>& arr1, vector<int>& arr2){
+    vector<int>ans;
+    int n = arr1.size();
+    int m = arr2.size();
+    int i,j=0;
+    int a = n-m;
+    if(a==0){
+        while( i<n && j<m){
+            int sum = arr1[i] + arr2[j];
+            ans.push_back(sum);
+            sum =0;
+            i++;
+            j++;
+        }
+    }else if(a > 0){
+        
+        arr2.insert(arr2.begin() + 0, a, 0); 
+
+        while( i<n && j<arr2.size()){
+            int sum = arr1[i] + arr2[j];
+            ans.push_back(sum);
+            sum =0;
+            i++;
+            j++;
+        }
+    }    
+    else{
+        a = abs(a);
+
+        arr1.insert(arr1.begin() + 0, a, 0); 
+
+        while( i< arr1.size() && j< m){
+            int sum = arr1[i] + arr2[j];
+            ans.push_back(sum);
+            sum =0;
+            i++;
+            j++;
+        }
+    }
+    
+    return ans;
+}
+
+
+int main() {
+    // Write C++ code here
+    
+    vector<int>arr1 = {2,5,7};
+    vector<int>arr2 = {3,5,2,8,10};
+    vector<int>result= addTwoArray(arr1, arr2);
+    for(auto it:result){
+        cout<<it<<" ";
+    }
+    return 0;
+}
