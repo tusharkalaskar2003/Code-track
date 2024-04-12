@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int GCD(int n1, int n2){
+    if(n1 == n2){
+        return n1;
+    }
+    if( n1==0) return n2;
+    if( n2 ==0) return n1;
+    
+    while(n1 != n2){
+        if(n1 > n2){
+            n1 = n1-n2;
+        }else{
+            n2 = n2-n1;
+        }
+    }
+    return n1;
+}
+int main() {
+    // Write C++ code here
+    int a,b;
+    cout<<"enter the first and second value"<<endl;
+    cin<<a<<b;
+    int ans =GCD(a, b);
+    cout<<"gcd("<<n1<<", "<<n2<<") is : "<<ans<<endl;
+    return 0;
+}
